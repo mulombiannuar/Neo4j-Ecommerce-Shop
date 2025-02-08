@@ -24,8 +24,8 @@ CREATE
     (asmaa:CUSTOMER {name: "Asmaa Abubakar", email: "asmaaabubakar@gmail.com"}),
     (john:CUSTOMER {name: "John Doe", email: "johndoe@gmail.com"}),
 
-    (sale101:SALE {sale_id: 103, date: "2024-02-10"}),
-    (sale102:SALE {sale_id: 104, date: "2024-02-11"});
+    (sale103:SALE {sale_id: 103, date: "2024-02-10"}),
+    (sale104 :SALE {sale_id: 104, date: "2024-02-11"});
 
 
 //Create Relationships
