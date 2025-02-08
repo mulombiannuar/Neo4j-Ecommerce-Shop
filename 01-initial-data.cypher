@@ -14,51 +14,47 @@
 
 // Create Nodes
 CREATE 
-    (laptop:PRODUCT {name: "Laptop", price: 1200}),
-    (smartphone:PRODUCT {name: "Smartphone", price: 800}),
-    (headphones:PRODUCT {name: "Headphones", price: 150}),
+    (monitor:PRODUCT {name: "Monitor", price: 1800}),
+    (keyboard:PRODUCT {name: "Keyboard", price: 500}),
+    
 
     (electronics:CATEGORY {name: "Electronics"}),
     (accessories:CATEGORY {name: "Accessories"}),
 
-    (anuary:CUSTOMER {name: "Anuary Mulombi", email: "mulombiannuar@gmail.com"}),
-    (grace:CUSTOMER {name: "Grace Gitau", email: "gracegitau@gmail.com"}),
+    (asmaa:CUSTOMER {name: "Asmaa Abubakar", email: "asmaaabubakar@gmail.com"}),
+    (john:CUSTOMER {name: "John Doe", email: "johndoe@gmail.com"}),
 
-    (sale101:SALE {sale_id: 101, date: "2024-02-08"}),
-    (sale102:SALE {sale_id: 102, date: "2024-02-09"});
+    (sale101:SALE {sale_id: 103, date: "2024-02-10"}),
+    (sale102:SALE {sale_id: 104, date: "2024-02-11"});
 
 
 //Create Relationships
 //MATCH + CREATE – creates the relationship only if it doesn’t exist to avoid duplications
-MATCH (laptop:PRODUCT {name: "Laptop"}) 
+MATCH (monitor:PRODUCT {name: "Monitor"}) 
 MATCH (electronics:CATEGORY {name: "Electronics"})
-CREATE (laptop)-[:BELONGS_TO]->(electronics);
+CREATE (monitor)-[:BELONGS_TO]->(electronics);
 
-MATCH (smartphone:PRODUCT {name: "Smartphone"})
-MATCH (electronics:CATEGORY {name: "Electronics"})
-CREATE (smartphone)-[:BELONGS_TO]->(electronics);
-
-MATCH (headphones:PRODUCT {name: "Headphones"})
+MATCH (keyboard:PRODUCT {name: "Keyboard"})
 MATCH (accessories:CATEGORY {name: "Accessories"})
-CREATE (headphones)-[:BELONGS_TO]->(accessories);
+CREATE (keyboard)-[:BELONGS_TO]->(accessories);
 
-MATCH (anuary:CUSTOMER {name: "Anuary Mulombi"})
-MATCH (sale101:SALE {sale_id: 101})
-CREATE (anuary)-[:PURCHASED]->(sale101);
+MATCH (asmaa:CUSTOMER {name: "Asmaa Abubakar"})
+MATCH (sale103:SALE {sale_id: 103})
+CREATE (asmaa)-[:PURCHASED]->(sale103);
 
-MATCH (grace:CUSTOMER {name: "Grace Gitau"})
-MATCH (sale102:SALE {sale_id: 102})
-CREATE (grace)-[:PURCHASED]->(sale102);
+MATCH (john:CUSTOMER {name: "John Doe"})
+MATCH (sale104:SALE {sale_id: 104})
+CREATE (john)-[:PURCHASED]->(sale104);
 
-MATCH (sale101:SALE {sale_id: 101})
-MATCH (laptop:PRODUCT {name: "Laptop"})
-CREATE (sale101)-[:INCLUDES]->(laptop);
+MATCH (sale103:SALE {sale_id: 104})
+MATCH (monitor:PRODUCT {name: "Monitor"})
+CREATE (sale103)-[:INCLUDES]->(monitor);
 
-MATCH (sale101:SALE {sale_id: 101})
-MATCH (headphones:PRODUCT {name: "Headphones"})
-CREATE (sale101)-[:INCLUDES]->(headphones);
+MATCH (sale104:SALE {sale_id: 104})
+MATCH (keyboard:PRODUCT {name: "Keyboard"})
+CREATE (sale104)-[:INCLUDES]->(keyboard);
 
-MATCH (sale102:SALE {sale_id: 102})
+MATCH (sale103:SALE {sale_id: 103})
 MATCH (smartphone:PRODUCT {name: "Smartphone"})
-CREATE (sale102)-[:INCLUDES]->(smartphone);
+CREATE (sale103)-[:INCLUDES]->(smartphone);
 
