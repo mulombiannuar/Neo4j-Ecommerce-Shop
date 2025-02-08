@@ -6,7 +6,7 @@ MATCH (product:PRODUCT)-[relationship:BELONGS_TO]->(category:CATEGORY)
 RETURN product, relationship, category;
 
 // Get all customers and their purchases
-MATCH (customer:CUSTOMER)-[relationship:MADE_PURCHASE]->(sale:SALE)  
+MATCH (customer:CUSTOMER)-[relationship:PURCHASED]->(sale:SALE)  
 RETURN customer, relationship, sale;
 
 // Get all sales and the products Included
