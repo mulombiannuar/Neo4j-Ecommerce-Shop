@@ -1,12 +1,10 @@
-//Get all categories
-MATCH (category:CATEGORY) RETURN category;
+//update nodes data
+MATCH (asmaa:CUSTOMER {name: 'Asmaa Abubakar'})
+SET asmaa.birthdate = date('2003-09-01')
+RETURN asmaa;
 
-// Get all products
-MATCH (product:PRODUCT) RETURN product;
+// deleting a node
+MATCH (john:Person {name: 'John Doe'})
+DELETE john;
 
-// Get all customers
-MATCH (customer:CUSTOMER) RETURN customer;
-
-// Get all sales
-MATCH (sale:SALE) RETURN sale;
 
